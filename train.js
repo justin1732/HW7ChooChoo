@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 $(document).ready(function(){
   var config = {
     apiKey: "AIzaSyBrdwrJyLKMnJUISCNJx-6gFFRItftYZ-Y",
