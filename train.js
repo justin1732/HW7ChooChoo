@@ -1,7 +1,7 @@
 var moment = require('moment');
 
 $(document).ready(function(){
-  var config = {
+  var firebaseConfig = {
     apiKey: "AIzaSyBrdwrJyLKMnJUISCNJx-6gFFRItftYZ-Y",
     authDomain: "train-scheduler-demo-6163c.firebaseapp.com",
     databaseURL: "https://train-scheduler-demo-6163c.firebaseio.com",
@@ -11,8 +11,11 @@ $(document).ready(function(){
     appId: "1:208640302639:web:6499f8202a81ca539bf0da",
     measurementId: "G-45WQRH8ZB2"
   };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
  
-  firebase.initializeApp(config);
+
 
 var database= firebase.database();
 var origin;
