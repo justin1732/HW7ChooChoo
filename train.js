@@ -1,24 +1,20 @@
-var moment = require('moment');
 
 $(document).ready(function(){
-  var firebaseConfig = {
-    apiKey: "AIzaSyBrdwrJyLKMnJUISCNJx-6gFFRItftYZ-Y",
-    authDomain: "train-scheduler-demo-6163c.firebaseapp.com",
-    databaseURL: "https://train-scheduler-demo-6163c.firebaseio.com",
-    projectId: "train-scheduler-demo-6163c",
-    storageBucket: "train-scheduler-demo-6163c.appspot.com",
-    messagingSenderId: "208640302639",
-    appId: "1:208640302639:web:6499f8202a81ca539bf0da",
-    measurementId: "G-45WQRH8ZB2"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  var config = {
+     apiKey: "AIzaSyCrNAldsQAUQgcgBaOabSX_ALpWhLvncfI",
+      authDomain: "fir-demo-31273.firebaseapp.com",
+      databaseURL: "https://fir-demo-31273.firebaseio.com",
+      projectId: "fir-demo-31273",
+      storageBucket: "fir-demo-31273.appspot.com",
+      messagingSenderId: "324069312328",
+};
+firebase.initializeApp(config);
+
  
 
 
 var database= firebase.database();
-var origin;
+var name;
 var destination;
 var first;
 var frequency = 0;
@@ -26,13 +22,13 @@ var frequency = 0;
 
 $("#add-train").on("click", function(){
 event.preventDefault();
-origin = $("#origin").val().trim();
+name = $("#name").val().trim();
 destination = $("#destination").val().trim();
 first = $("#first").val().trim();
 frequency = $("#frequency").val().trim();
 
 database.ref().push({
-origin:origin,
+name:name,
 destination: destination,
 first: first,
 frequency: frequency,
@@ -52,7 +48,7 @@ var nextTrain = moment().add(minutesAway, "minutes");
 nextTrain = moment(nextTrain).format("hh:mm");
 
 
-$("#add=row").append("<tr><td>" + childSnapshot.val().origin +
+$("#add-row").append("<tr><td>" + childSnapshot.val().name +
 "</td><td>" + childSnapshot.val().destination +
 "</td><td>" + childSnapshot.val().frequency +
 "</td><td>" + nextTrain +
@@ -62,5 +58,10 @@ $("#add=row").append("<tr><td>" + childSnapshot.val().origin +
     console.log("Errors handled: " + errorObject.code);
     });
 
-
+    database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot){
+      $("#name-display").html(snapshot.val().name);
+      $("#email-display").html(snapshot.val().email);
+      $("#age-display").html(snapshot.val().age);
+      $("#comment-display").html(snapshot.val().comment);
+    });
 });

@@ -7,13 +7,13 @@
     <title>Train Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="train.js" type="text/javascript"></script>
 <script src="/__/firebase/7.8.1/firebase-app.js"></script>
 <script src="/__/firebase/7.8.1/firebase-analytics.js"></script>
 <script src="/__/firebase/init.js"></script>
-<!-- <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
             <table class="table">
             <thead>
                 <tr>
-                    <th>Origin</th>
+                    <th>Name</th>
                     <th>Destination</th>
                     <th>Frequency in Minutes</th>
                     <th>Next Arrival</th>
@@ -37,7 +37,7 @@
                 </tr>
             </thead>
             <tbody id= "add-row">
-                            </tbody>
+            </tbody>
             </table>
         </div>
     </div>
@@ -45,24 +45,25 @@
     <div class= "panel-heading">
         <h2>Add a Train</h2>
     </div>
+    <div class="panel-body">
 <form>
     <div class="form-group">
-        <label for "text">Origin</label>
-        <input type="text" class="form-control" id="origin">
+        <label for ="text">Name</label>
+        <input type="text" class="form-control" id="name">
     </div>
     <div class="form-group">
-        <label for "text">Destination</label>
+        <label for ="text">Destination</label>
         <input type="text" class="form-control" id="destination">
     </div>
     <div class="form-group">
-        <label for "text">First Time</label>
+        <label for= "text">First Time (HH:mm - Military Time)</label>
         <input type="text" class="form-control" id="first">
     </div>
     <div class="form-group">
-        <label for "text">Frequency</label>
+        <label for= "text">Frequency</label>
         <input type="text" class="form-control" id="frequency">
     </div>
-    <button type="submit" id="add-train" class="btn btn-success" id="addTrain">Submit</button>
+    <button type="submit" id="add-train" class="btn btn-danger" id="addTrain">Submit</button>
 </form>
 </div>
 </body>
