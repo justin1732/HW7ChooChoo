@@ -3,7 +3,7 @@
 
 This was the final individual project before we went into our first group project from the University of Denver FullStack Coding Bootcamp.
 
-This app display something similar to a Train Scheduler to see when trains are arriving and departing. Users can also add a train destination as well through Firebase.
+This app displays something like a schedule board in a train station, where you could see when trains are arriving and departing. You can also add a train destination as well through Firebase.
 
 ## Using the App on Github
 
